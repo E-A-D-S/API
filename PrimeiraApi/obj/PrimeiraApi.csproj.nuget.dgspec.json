@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EDUARDO\\PrimeiraApi\\PrimeiraApi.csproj": {}
+    "C:\\Users\\EDUARDO\\Desktop\\API\\PrimeiraApi\\PrimeiraApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EDUARDO\\PrimeiraApi\\PrimeiraApi.csproj": {
+    "C:\\Users\\EDUARDO\\Desktop\\API\\PrimeiraApi\\PrimeiraApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EDUARDO\\PrimeiraApi\\PrimeiraApi.csproj",
+        "projectUniqueName": "C:\\Users\\EDUARDO\\Desktop\\API\\PrimeiraApi\\PrimeiraApi.csproj",
         "projectName": "PrimeiraApi",
-        "projectPath": "C:\\Users\\EDUARDO\\PrimeiraApi\\PrimeiraApi.csproj",
+        "projectPath": "C:\\Users\\EDUARDO\\Desktop\\API\\PrimeiraApi\\PrimeiraApi.csproj",
         "packagesPath": "C:\\Users\\EDUARDO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EDUARDO\\PrimeiraApi\\obj\\",
+        "outputPath": "C:\\Users\\EDUARDO\\Desktop\\API\\PrimeiraApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

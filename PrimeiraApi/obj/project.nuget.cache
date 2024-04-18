@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vNn7JWfUl9mf0a6mJc0a1SpJm9fDqcWlMRcoiZusU5vIRHTTzgBT64nvNtoRNr5o4pSFIWgo3OlUr95WkFlTyQ==",
+  "dgSpecHash": "NfHmsXuoDKJGvy62h42wpBWtOFhHDWSQYWtMLfpmIqgfFLCZZBuOXNzWzi/srCrZtbiJjzoP1bdhVpWC7r/vww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EDUARDO\\PrimeiraApi\\PrimeiraApi.csproj",
+  "projectFilePath": "C:\\Users\\EDUARDO\\Desktop\\API\\PrimeiraApi\\PrimeiraApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EDUARDO\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.3\\microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",
     "C:\\Users\\EDUARDO\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
