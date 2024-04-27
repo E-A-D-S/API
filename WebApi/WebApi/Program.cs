@@ -9,34 +9,33 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using WebApi.Application.Mapping;
 using WebApi.Application.Swagger;
-using WebApi.Domain.Model.EmployeeAggregate;
+using WebApi.Domain.Repositories;
 using WebApi.Infraestrutura;
 using WebApi.Infraestrutura.Repositories;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configurando a conexão com o banco de dados SQLite
-// No método ConfigureServices do seu Startup.cs
 builder.Services.AddDbContext<ConnectionContext>(options =>
     options.UseSqlite("Data Source=ConnectionContext.db"));
 
-
-builder.Services.AddScoped<IEmployeeRepository>(provider =>
-{
-    var options = provider.GetRequiredService<DbContextOptions<ConnectionContext>>();
-    return new EmployeeRepository(options);
-});
-
-builder.Services.AddScoped<WebApi.Domain.Repositories.IPersonRepository, PersonRepository>();
+// Registrando a implementação de IPersonRepository
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 // Configuração da autenticação JWT
 var key = Encoding.ASCII.GetBytes(WebApi.Key.Secret);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+    .AddJwtBearer("v2", options =>
     {
         options.RequireHttpsMetadata = false;
         options.SaveToken = true;
@@ -61,9 +60,13 @@ builder.Services.AddVersionedApiExplorer(setup =>
     setup.SubstituteApiVersionInUrl = true;
 });
 
-// Configuração do Swagger
 builder.Services.AddSwaggerGen(c =>
 {
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml")); // Adicione esta linha
+
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web API - V1", Version = "v1" });
+    c.SwaggerDoc("v2", new OpenApiInfo { Title = "Web API - V2", Version = "v2" });
+
     c.OperationFilter<SwaggerDefaultValues>();
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -111,7 +114,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 var versionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
-
 if (app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
@@ -129,6 +131,11 @@ else
 {
     app.UseExceptionHandler("/error");
 }
+
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v2/swagger.json", "Web API - V2");
+});
 
 app.UseCors("MyPolicy");
 app.UseHttpsRedirection();

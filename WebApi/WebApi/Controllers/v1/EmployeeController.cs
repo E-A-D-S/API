@@ -5,8 +5,12 @@ using WebApi.Application.ViewModel;
 using WebApi.Domain.DTOs;
 using WebApi.Domain.Model.EmployeeAggregate;
 
+
 namespace WebApi.Controllers.v1
 {
+    /// <summary>
+    /// Controlador para lidar com operações relacionadas a funcionários.
+    /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/employee")]
     [ApiVersion("1.0")]
@@ -16,6 +20,12 @@ namespace WebApi.Controllers.v1
         private readonly ILogger<EmployeeController> _logger;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// Inicializa uma nova instância de <see cref="EmployeeController"/>.
+        /// </summary>
+        /// <param name="employeeRepository">O repositório de funcionários.</param>
+        /// <param name="logger">O logger.</param>
+        /// <param name="mapper">O mapeador.</param>
         public EmployeeController(IEmployeeRepository employeeRepository, ILogger<EmployeeController> logger, IMapper mapper)
         {
             _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
@@ -23,6 +33,11 @@ namespace WebApi.Controllers.v1
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        /// <summary>
+        /// Adiciona um novo funcionário.
+        /// </summary>
+        /// <param name="employeeView">Os dados do funcionário a serem adicionados.</param>
+        /// <returns>O resultado da operação.</returns>
         [Authorize]
         [HttpPost]
         public IActionResult Add([FromForm] EmployeeViewModel employeeView)
@@ -40,6 +55,11 @@ namespace WebApi.Controllers.v1
             return Ok();
         }
 
+        /// <summary>
+        /// Faz o download da foto de um funcionário.
+        /// </summary>
+        /// <param name="id">O ID do funcionário.</param>
+        /// <returns>O arquivo de imagem do funcionário.</returns>
         [Authorize]
         [HttpPost]
         [Route("{id}/download")]
@@ -52,6 +72,12 @@ namespace WebApi.Controllers.v1
             return File(dataBytes, "image/png");
         }
 
+        /// <summary>
+        /// Obtém uma página de funcionários.
+        /// </summary>
+        /// <param name="pageNumber">O número da página.</param>
+        /// <param name="pageQuantity">A quantidade de funcionários por página.</param>
+        /// <returns>A página de funcionários.</returns>
         [HttpGet]
         public IActionResult Get(int pageNumber, int pageQuantity)
         {
@@ -63,7 +89,11 @@ namespace WebApi.Controllers.v1
 
             return Ok(employess);
         }
-
+        /// <summary>
+        /// Busca um funcionário pelo ID.
+        /// </summary>
+        /// <param name="id">O ID do funcionário.</param>
+        /// <returns>O funcionário encontrado.</returns>
         [HttpGet]
         [Route("{id}")]
         public IActionResult Search(int id)

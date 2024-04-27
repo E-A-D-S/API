@@ -3,10 +3,18 @@ using WebApi.Application.Services;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// Controller responsável pela autenticação na API.
+    /// </summary>
     [ApiController]
     [Route("api/v1/auth")]
     public class AuthController : Controller
-    {
+    {/// <summary>
+     /// Autentica um usuário com base no nome de usuário e senha fornecidos.
+     /// </summary>
+     /// <param name="username">Nome de usuário.</param>
+     /// <param name="password">Senha.</param>
+     /// <returns>Token de autenticação.</returns>
         [HttpPost]
         public IActionResult Auth(string username, string password)
         {

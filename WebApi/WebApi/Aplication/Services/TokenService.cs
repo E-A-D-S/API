@@ -7,8 +7,16 @@ using WebApi.Domain.Model.EmployeeAggregate;
 
 namespace WebApi.Application.Services
 {
+    /// <summary>
+    /// Serviço para geração de tokens JWT.
+    /// </summary>
     public class TokenService
     {
+        /// <summary>
+        /// Gera um token JWT para o funcionário especificado.
+        /// </summary>
+        /// <param name="employee">O funcionário para o qual gerar o token.</param>
+        /// <returns>O token JWT gerado.</returns>
         public static object GenerateToken(Employee employee)
         {
             var key = Encoding.ASCII.GetBytes(Key.Secret);
@@ -16,7 +24,7 @@ namespace WebApi.Application.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                      new Claim("employeeId", employee.id.ToString()),
+                    new Claim("employeeId", employee.id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

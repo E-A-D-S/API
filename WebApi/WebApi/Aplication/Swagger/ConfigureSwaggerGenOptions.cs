@@ -24,7 +24,7 @@ namespace WebApi.Application.Swagger
         {
             var info = new OpenApiInfo()
             {
-                Title = "Web.API - Filipe Brito Dev",
+                Title = "Web.API - Eduardo Araújo dos Santos",
                 Version = description.ApiVersion.ToString()
             };
 
