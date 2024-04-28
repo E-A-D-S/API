@@ -185,3 +185,40 @@ O versionamento no Swagger permite que diferentes versões da API coexistam harm
 
 - **O que é versionamento de API e as melhores práticas**: Este artigo explora a definição de versionamento de API, seu propósito e as melhores práticas associadas a ele. Ele enfatiza a importância do versionamento para garantir a estabilidade e a evolução das APIs ao longo do tempo. [Link](https://www.sensedia.com.br/post/o-que-e-versionamento-de-api-e-as-melhores-praticas#:~:text=As%20APIs%20s%C3%A3o%20consumidas%20a,(e%20possivelmente%20as%20integra%C3%A7%C3%B5es).)
 
+## Screenshots
+- Nova Conexão Banco de dados SqlLite no Dbeaver
+  
+![Dbeaver](https://github.com/E-A-D-S/API/blob/main/Imagens/Nova%20Conex%C3%A3o%20Dbeaver.png)
+
+- Selecionando novo Banco de dados SqlLite
+  
+![Selecionando novo Banco de dados SqlLite](https://github.com/E-A-D-S/API/blob/main/Imagens/Selecione%20o%20Sql.Lite.png)
+
+- Adicionando arquivo do banco de dados
+  
+![Adicionando arquivo do banco de dados](https://github.com/E-A-D-S/API/blob/main/Imagens/Abrindo%20Arquivo%20do%20banco%20de%20dados.png)
+
+- Visualizando as tabelas de dados
+  
+![Visualizando as tabelas de dados](https://github.com/E-A-D-S/API/blob/main/Imagens/Abrindo%20Tabelas%20para%20ver%20o%20banco%20de%20dados.png)
+
+- Projeto No Visual Studio
+  
+![Pastas do projeto Visual Studio](https://github.com/E-A-D-S/API/blob/main/Imagens/Pastas%20projeto.png)
+
+- Versão 1 do Projeto
+  
+![Versão 1 do Projeto](https://github.com/E-A-D-S/API/blob/main/Imagens/Pagina1%20versao1.png)
+
+- Versão 2 do Projeto
+  
+![Versão 2 do projeto](https://github.com/E-A-D-S/API/blob/main/Imagens/Pagina%202%20Vers%C3%A3o%202.png)
+
+- Abrindo o teste
+  
+![Abrindo o teste](https://github.com/E-A-D-S/API/blob/main/Imagens/Executar%20teste.png)
+
+- Executando o teste
+  
+![Executando o teste](https://github.com/E-A-D-S/API/blob/main/Imagens/Teste%20Em%20Andamento.png)
+
